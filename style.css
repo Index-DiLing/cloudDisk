@@ -15,7 +15,7 @@
     height: 5vh;
     background-color: #f2f2f2;
 }
-.search {
+.input_field{
     display: flex;
     align-items: center;
     float: left;
@@ -25,38 +25,26 @@
 }
 .search_input{
     margin-left: 1%;
+}
+.key_input,.id_input,.search_input{
     height: 80%;
     width: 80%;
+    font-size: xx-large;
 }
-.key_input {
-    margin: 0;
-    height: 80%;
-    width: 80%;
-    
-}
-.key_field {
-   
-    display: flex;
-    align-items: center;
-    float: left;
-    width: 20vw;
-    height: 5vh;
-    background-color: #62b32c;
-}
-.upload {
+.upload_guide_button {
+    top: 0;
     float: right;
     width: 5vw;
     height: 5vh;
     background-color: #2c7fb3;
 }
-.help {
+.help_guide_button {
     float: right;
     width: 5vw;
-    height: 5vh;
+    height: 100%;
     background-color: #2c2cb3;
 }
 .file {
-
     left: 0;
     margin-bottom: 1%;
     display: flex;
@@ -142,6 +130,27 @@
     top: 35vh;
     left: 35vw;
     z-index: 2;
+    animation: fadeIn 0.5s ease 1;
+}
+@keyframes fadeIn {
+    from{
+        opacity: 0;
+        transform: translateY(100px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes fadeOut {
+    from{
+        opacity: 1;
+        transform: translateY(0px);
+    }
+    to{
+        opacity: 0;
+        transform: translateY(100px);
+    }
 }
 
 .upload_form_title{
@@ -175,17 +184,29 @@
     border-color: #23292e;
     border-style: solid;
     border-width: 1px; 
-
     display: flex;
     flex-direction: row;
     align-items: center;
 }
+#text_file_info_field.file_info_field{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
 .file_upload_button{
+    border-radius: 5px;
+    border-color: #23292e;
+    border-style: solid;
+    border-width: 1px; 
     width: 40%;
     height: 20%;
-    background-color: #b32c64;
+    background-color: #23292e;
     margin: 0;
     margin-left: auto;
+    font-family: "Fira Sans";
+    font-size: 3vh;
+    color: #fff;
+    text-align: center;
 }
 #submit-form-file{
 	display: none;
@@ -221,6 +242,10 @@
     width: 20%;
     height: 5vh;
     background-image: url(svg/icon-close.svg);
+    background-position: center;
     background-repeat: no-repeat;
     background-size: 50% 50%;
+}
+.text_file_info{
+    font-size: small;
 }

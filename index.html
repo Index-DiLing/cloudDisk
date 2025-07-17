@@ -52,10 +52,29 @@
                     $(this).children("img")[0].style.display = "none";
                 }
             });
+            $(".close_button").click(function(){
+                $(".upload_form").css("animation","fadeOut 0.5s ease 0s");
+                setTimeout(function(){
+                    $(".upload_form").hide();
+                    $(".upload_form_label").children("img").attr("src","/svg/submit.svg");
+                    $("submit-form-file")[0].files = 0;
+                },400);
+            });
+            $(".upload_guide_button").click(function(){
+                $(".upload_form").css("animation","fadeIn 0.5s ease 0s");
+                $(".upload_form").show();
+            });
+            $("#submit-form-file").on("change",function(){
+                const file = $(this)[0].files[0];
+                $("#name.text_file_info").text("文件名: "+file.name);
+                $("#size.text_file_info").text("文件大小: "+file.size/1024/1024+"MB");  
+                $(".upload_form_label").children("img").attr("src","/svg/success.svg");
+            });
         });
     </script>
 </head>
 <body>
+
     <div class="upload_form">
         <div class="upload_form_title">
             <h1>上传文件</h1>
@@ -65,119 +84,40 @@
 			<label for="submit-form-file" class="upload_form_label">
 				<img src="/svg/submit.svg" width="10%" height="10%">
 			</label>
-			<input id="submit-form-file" type="file" name="resource" onchange="selectFile();">
+			<input id="submit-form-file" type="file" name="resource">
         </div>
         <div class="upload_form_right">
-            <div class="file_info_field">
+            <div class="file_info_field" id="select_file_info">
                 <div class="file_permission_input">
                     <img src="/svg/checked.svg" width="100%" height="100%" style="display: none;">
                 </div>
                 <h1 class="file_permission_input_label">不公开(需要高级权限)</h1>
             </div>
-            <div class="file_info_field"></div>
-            <div class="file_upload_button"></div>
+            <div class="file_info_field" id="text_file_info_field" >
+                <h1 class="text_file_info" id="name"></h1>
+                <h1 class="text_file_info" id="size"></h1>
+            </div>
+            <div class="file_upload_button">确认</div>
         </div>
         <div class="upload_form_footer">请确保你拥有上传文件权限,请勿上传违法文件</div>
     </div>
+
     <div class="guide">
-        <div class="search">
+        <div class="input_field">
             <input type="text" placeholder="搜索" class="search_input">
             <div class="search_button"></div>
         </div>
-        <div class="key_field">
+        <div class="input_field">
             <input type="text" placeholder="KEY" class="key_input">
         </div>
-        <div class="id_field">
-            <input type="text" placeholder="ID" class="xid_input">
+        <div class="input_field">
+            <input type="text" placeholder="ID" class="id_input">
         </div>
-        <div class="upload"></div>
-        <div class="help"></div>
+        <div class="upload_guide_button"></div>
+        <div class="help_guide_button"></div>
     </div>
+
     <div class="empty"></div>
-    <div class="file">
-        <div class="file_icon"></div>
-        <div class="file_name"></div>
-        <div class="file_id"></div>
-        <div class="file_size"></div>
-        <div class="file_time"></div>
-        <div class="file_uploader"></div>
-        <div class="file_counts"></div>
-        <div class="file_download_button"></div>
-        <div class="file_label_button"></div>
-        <div class="file_delete_button"></div>
-    </div>
-    <div class="file">
-        <div class="file_icon"></div>
-        <div class="file_name"></div>
-        <div class="file_id"></div>
-        <div class="file_size"></div>
-        <div class="file_time"></div>
-        <div class="file_uploader"></div>
-        <div class="file_counts"></div>
-        <div class="file_download_button"></div>
-        <div class="file_label_button"></div>
-        <div class="file_delete_button"></div>
-    </div>
-    <div class="file">
-        <div class="file_icon"></div>
-        <div class="file_name"></div>
-        <div class="file_id"></div>
-        <div class="file_size"></div>
-        <div class="file_time"></div>
-        <div class="file_uploader"></div>
-        <div class="file_counts"></div>
-        <div class="file_download_button"></div>
-        <div class="file_label_button"></div>
-        <div class="file_delete_button"></div>
-    </div>
-    <div class="file">
-        <div class="file_icon"></div>
-        <div class="file_name"></div>
-        <div class="file_id"></div>
-        <div class="file_size"></div>
-        <div class="file_time"></div>
-        <div class="file_uploader"></div>
-        <div class="file_counts"></div>
-        <div class="file_download_button"></div>
-        <div class="file_label_button"></div>
-        <div class="file_delete_button"></div>
-    </div>
-    <div class="file">
-        <div class="file_icon"></div>
-        <div class="file_name"></div>
-        <div class="file_id"></div>
-        <div class="file_size"></div>
-        <div class="file_time"></div>
-        <div class="file_uploader"></div>
-        <div class="file_counts"></div>
-        <div class="file_download_button"></div>
-        <div class="file_label_button"></div>
-        <div class="file_delete_button"></div>
-    </div>
-    <div class="file">
-        <div class="file_icon"></div>
-        <div class="file_name"></div>
-        <div class="file_id"></div>
-        <div class="file_size"></div>
-        <div class="file_time"></div>
-        <div class="file_uploader"></div>
-        <div class="file_counts"></div>
-        <div class="file_download_button"></div>
-        <div class="file_label_button"></div>
-        <div class="file_delete_button"></div>
-    </div>
-    <div class="file">
-        <div class="file_icon"></div>
-        <div class="file_name"></div>
-        <div class="file_id"></div>
-        <div class="file_size"></div>
-        <div class="file_time"></div>
-        <div class="file_uploader"></div>
-        <div class="file_counts"></div>
-        <div class="file_download_button"></div>
-        <div class="file_label_button"></div>
-        <div class="file_delete_button"></div>
-    </div>
     <div class="file">
         <div class="file_icon"></div>
         <div class="file_name"></div>
