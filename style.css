@@ -145,7 +145,7 @@
 }
 
 .upload_form_title{
-    width: 100%;
+    width: 80%;
     height: 5vh;
     background-color: #e2e2e2;
     color: #23292e;
@@ -216,4 +216,11 @@
     text-align: center;
     margin: 0;
     font-size: 2vh;
+}
+.close_button{
+    width: 20%;
+    height: 5vh;
+    background-image: url(svg/icon-close.svg);
+    background-repeat: no-repeat;
+    background-size: 50% 50%;
 }
