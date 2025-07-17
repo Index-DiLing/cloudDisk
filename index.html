@@ -44,6 +44,13 @@
                     }
                 ).then(response => response.blob())
             });
+            $(".file_permission_input").click(function(){
+                if($(this).children("img")[0].style.display == "none"){
+                    $(this).children("img")[0].style.display = "block";
+                }else{
+                    $(this).children("img")[0].style.display = "none";
+                }
+            });
         });
     </script>
 </head>
@@ -60,16 +67,16 @@
         </div>
         <div class="upload_form_right">
             <div class="file_info_field">
-                <input type="checkbox"class="file_permission_input">
-                <label for="file_permission_input" class="file_permission_input_label">不公开(需要高级权限)</label>
+                <div class="file_permission_input">
+                    <img src="/svg/checked.svg" width="100%" height="100%" style="display: none;">
+                </div>
+                <h1 class="file_permission_input_label">不公开(需要高级权限)</h1>
             </div>
             <div class="file_info_field"></div>
             <div class="file_upload_button"></div>
         </div>
         <div class="upload_form_footer">请确保你拥有上传文件权限,请勿上传违法文件</div>
     </div>
-
-
     <div class="guide">
         <div class="search">
             <input type="text" placeholder="搜索" class="search_input">

@@ -1,3 +1,6 @@
+*{
+    margin: 0;
+}
 .guide {
     top: 0;
     position: fixed;
@@ -129,8 +132,6 @@
     border-width: 1px;
     border-color: #ffff;
     overflow: hidden;
-
-    margin: 0;
     display: flex;
     flex-flow: row wrap;
     background-color: #fff;
@@ -144,7 +145,6 @@
 }
 
 .upload_form_title{
-    margin: 0;
     width: 100%;
     height: 5vh;
     background-color: #e2e2e2;
@@ -154,7 +154,6 @@
     text-align: center;
 }
 .file_select{
-    margin: 0;
     left: 0;
     width: 50%;
     height: 25vh;
@@ -163,14 +162,12 @@
     
 }
 .upload_form_right{
-    margin: 0;
     right: 0;
     width: 50%;
     height: 25vh;
     
 }
 .file_info_field{
-    margin: 0;
     width: 100%;
     height: 40%;
     background-color: #c2c2c2;
@@ -184,7 +181,6 @@
     align-items: center;
 }
 .file_upload_button{
-    margin: 0;
     width: 40%;
     height: 20%;
     background-color: #b32c64;
@@ -198,7 +194,6 @@
     display:flex;
     align-items: center;
     justify-content: center;
-    margin: 0;
     width: 100%;
     height: 100%;
     background-color: #ffffff;
@@ -211,12 +206,11 @@
     height: 2vh;
     font-family: "Fira Sans";
 }
-.file_permission_input:checked{
-
+.file_permission_input{ 
     margin: 0;
-    width: 5vh;
-    height: 5vh;
-    background-color: #ffffff;
+    width: 3vh;
+    height: 3vh;
+    background-color: #fff;
 }
 .file_permission_input_label{
     text-align: center;
