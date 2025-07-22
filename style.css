@@ -65,28 +65,13 @@
     height: 9.1vh;
     background-color: rgb(127, 255, 127);
 }
-.file_name {
+.file_name,.file_size,.file_id,.file_time {
+    margin: auto;
     width: 10%;
     height: 5vh;
-    background-color: rgb(255, 185, 127);
-}
-.file_size{
-    width: 5%;
-    height: 5vh;
-    background-color: rgb(255, 127, 212);
-    margin: 1%;
-}
-.file_id {
-    width: 5%;
-    height: 5vh;
-    background-color: rgb(255, 127, 212);
-    margin: 1%;
-}
-.file_time {
-    margin: 1%;
-    width: 10%;
-    height: 5vh;
-    background-color: rgb(255, 185, 127);
+    background-color: #e2e2e2;
+    text-align: center;
+    font-size: 3vh;
 }
 .file_uploader{
     margin: 1%;
@@ -115,10 +100,9 @@
 }
 
 .upload_form{
-    border-radius: 5px;
     border-style: solid;
     border-width: 1px;
-    border-color: #ffff;
+    border-color: #c2c2c2;
     overflow: hidden;
     display: flex;
     flex-flow: row wrap;
@@ -222,10 +206,11 @@
 	border: dashed 1px #d9d9d9;
 }
 .upload_form_footer{
-    margin: 0;
+    margin-left: 1%;
     width: 100%;
     height: 2vh;
     font-family: "Fira Sans";
+    font-size: 1.5vh;
 }
 .file_permission_input{ 
     margin: 0;

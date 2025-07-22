@@ -32,10 +32,12 @@
             "py":"code"
         };
         $(document).ready(function(){
+            var per = false;
+            const url = "http://127.0.0.1:8086"
             $(".search_input").keydown(
                 function(event){
                     if(event.which==13){
-                        fetch("http://175.24.51.84/file/list",
+                        fetch(url+"/file/list",
                             {
                                 method:'POST',
                                 headers: {
@@ -51,7 +53,7 @@
                 }
             );
             $(".file_download_button").click(function(){
-                fetch("http://175.24.51.84/file/download",
+                fetch(url+"/file/download",
                     {
                         method:'POST',
                         headers: {
@@ -67,8 +69,10 @@
             $(".file_permission_input").click(function(){
                 if($(this).children("img")[0].style.display == "none"){
                     $(this).children("img")[0].style.display = "block";
+                    per = true;
                 }else{
                     $(this).children("img")[0].style.display = "none";
+                    per = false;
                 }
             });
             $(".close_button").click(function(){
@@ -90,6 +94,30 @@
                 const extension = file.name.split(".").pop();  
                 const icon = extension in fileIcon? fileIcon[extension] : "file";
                 $(".upload_form_label").children("img").attr("src","/svg/file_icon/"+icon+".svg");
+            });
+
+            $(".file_upload_button").on("click",function(){
+                const file = $("#submit-form-file")[0].files[0];
+                const key = $(".key_input").val();
+                const note = $("#note").val();
+                const permission = per;
+                console.log(file,key,note,permission);
+                const formData = new FormData();
+                formData.append("file",file);
+                formData.append("key",key);
+                formData.append("note",note);
+                formData.append("permission",permission);
+                fetch(url+"/file/upload",
+                    {
+                        method:'POST',
+                        body: formData
+                    }
+                ).then(response => response.json())
+                 .then(data => {
+                    alert(data.body);
+               }).catch(error => {
+                    console.log("上传失败"+error);
+               });
             });
         });
     </script>
@@ -116,6 +144,8 @@
             <div class="file_info_field" id="text_file_info_field" >
                 <h1 class="text_file_info" id="name"></h1>
                 <h1 class="text_file_info" id="size"></h1>
+            
+                <textarea id="note" placeholder="文件描述"></textarea>
             </div>
             <div class="file_upload_button">确认</div>
         </div>
@@ -140,12 +170,12 @@
     <div class="empty"></div>
     <div class="file">
         <div class="file_icon"></div>
-        <div class="file_name"></div>
-        <div class="file_id"></div>
-        <div class="file_size"></div>
-        <div class="file_time"></div>
-        <div class="file_uploader"></div>
-        <div class="file_counts"></div>
+        <div class="file_name">AAA</div>
+        <div class="file_id">114514</div>
+        <div class="file_size">1919810MB</div>
+        <div class="file_time">2022-01-01</div>
+        <div class="file_uploader">SSB</div>
+        <div class="file_counts">0721</div>
         <div class="file_download_button"></div>
         <div class="file_label_button"></div>
         <div class="file_delete_button"></div>
