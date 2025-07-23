@@ -9,9 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>云盘</title>
     <link rel="stylesheet", href="style.css">
-    <script src="script.js"></script>
     <script>
-    
         const fileIcon={
             "zip":"zip",
             "7z":"7z",
@@ -52,10 +50,11 @@
                     }
                 }
             );
+            
             $(".file_download_button").click(function(){
-                fetch(url+"/file/download",
+                fetch(url+"/file/registerSingleUseKey",
                     {
-                        method:'POST',
+                        method:'GET',
                         headers: {
                             'Content-Type': 'application/json'
                         },
@@ -64,8 +63,18 @@
                             key: $(".key_input").val()
                         })
                     }
-                ).then(response => response.blob())
+                ).then(data=>{
+                    fetch(url+"/file/download",
+                        {
+                            method:'GET',
+                            headers: {
+                             'Content-Type': 'application/json'
+                            },
+                            body:data.text()
+                        });
+                });
             });
+
             $(".file_permission_input").click(function(){
                 if($(this).children("img")[0].style.display == "none"){
                     $(this).children("img")[0].style.display = "block";
@@ -75,6 +84,7 @@
                     per = false;
                 }
             });
+
             $(".close_button").click(function(){
                 $(".upload_form").css("animation","fadeOut 0.5s ease 0s");
                 setTimeout(function(){
@@ -87,6 +97,7 @@
                 $(".upload_form").css("animation","fadeIn 0.5s ease 0s");
                 $(".upload_form").show();
             });
+
             $("#submit-form-file").on("change",function(){
                 const file = $(this)[0].files[0];
                 $("#name.text_file_info").text("文件名: "+file.name);
@@ -95,13 +106,12 @@
                 const icon = extension in fileIcon? fileIcon[extension] : "file";
                 $(".upload_form_label").children("img").attr("src","/svg/file_icon/"+icon+".svg");
             });
-
             $(".file_upload_button").on("click",function(){
+
                 const file = $("#submit-form-file")[0].files[0];
                 const key = $(".key_input").val();
                 const note = $("#note").val();
                 const permission = per;
-                console.log(file,key,note,permission);
                 const formData = new FormData();
                 formData.append("file",file);
                 formData.append("key",key);
@@ -114,11 +124,31 @@
                     }
                 ).then(response => response.json())
                  .then(data => {
-                    alert(data.body);
+                    //这里需要处理一下
                }).catch(error => {
                     console.log("上传失败"+error);
                });
             });
+
+
+            $(".help_guide_button").on("click",function(){
+                const form = new FormData();
+                form.append("key","7fffffffeeeeeee0");
+                form.append("id",1);
+                fetch(url+"/file/registerSingleUseKey",
+                    {
+                        method:'POST',
+                        body:form
+                    }
+                )
+                .then(response => response.text()).then(data => {
+                    console.log(data);  
+                    var a = document.createElement("a");
+                    a.href = url+"/file/download?singleUseKey="+data;
+                    a.click();
+                });
+            });
+
         });
     </script>
 </head>
@@ -159,9 +189,6 @@
         </div>
         <div class="input_field">
             <input type="text" placeholder="KEY" class="key_input">
-        </div>
-        <div class="input_field">
-            <input type="text" placeholder="ID" class="id_input">
         </div>
         <div class="upload_guide_button"></div>
         <div class="help_guide_button"></div>
