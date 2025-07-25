@@ -1,0 +1,120 @@
+.pagination-container {
+    width: 888px;
+    background-color: #c2c2c2;
+    border-radius: 10px;
+    padding: 20px;
+    margin: auto;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-wrap: wrap;
+}
+
+.pagination li {
+    margin: 5px;
+}
+
+.pagination li a,
+.pagination li span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 40px;
+    padding: 0px 10px;
+    border-radius: 8px;
+    background-color: #444;
+    color: #b0b0d0;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 1px solid rgba(80, 85, 100, 0.5);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.pagination li a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.pagination li.active a {
+    background-color: #00aeec;
+    color: white;
+    border-color: #00aeec;
+    box-shadow: 0 0 15px rgba(0, 174, 236, 0.5);
+}
+
+.pagination li.disabled span {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.pagination li.ellipsis span {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    cursor: default;
+}
+
+.pagination li.prev-next a {
+    min-width: 100px;
+    background: rgba(50, 55, 75, 0.9);
+}
+
+.pagination li.prev-next a:hover {
+    background: rgba(70, 75, 100, 0.9);
+}
+
+.pagination li.prev-next a i {
+    margin: 0 5px;
+}
+
+.page_num {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    font-size: 1.1rem;
+    color: #181822;
+}
+
+.page_num input {
+    width: 60px;
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #444;
+    background: rgba(40, 45, 60, 0.8);
+    color: white;
+    text-align: center;
+    margin: 0 10px;
+}
+
+.page_num button {
+    background: rgba(0, 174, 236, 0.2);
+    color: #00aeec;
+    border: 1px solid #00aeec;
+    border-radius: 6px;
+    padding: 8px 15px;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.page_num button:hover {
+    background-color: #444;
+}
+
+.ellipsis {
+    color: #000;
+}
+
+.ellipsis li {
+    font-size: 1.2rem;
+    margin: 0 5px;
+    color: #000;
+}

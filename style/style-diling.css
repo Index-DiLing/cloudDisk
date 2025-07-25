@@ -84,7 +84,7 @@
     right: 0;
     width: 5vh;
     height: 5vh;
-    background-image: url(svg/download.svg);
+    background-image: url(../svg/download.svg);
     background-size: contain;
     
 }
@@ -95,7 +95,7 @@
     margin: 1%;
     width: 5vh;
     height: 5vh;
-    background-image: url(svg/delete.svg);
+    background-image: url(../svg/delete.svg);
     background-size: contain;
 }
 
@@ -227,7 +227,7 @@
     width: 20%;
     height: 5vh;
     background-color: #c2c2c2;
-    background-image: url(svg/icon-close.svg);
+    background-image: url(../svg/icon-close.svg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: 50% 50%;
