@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <!-- 引入 layui.css -->
     <link href="//unpkg.com/layui@2.11.2/dist/css/layui.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="//unpkg.com/layui@2.11.2/dist/layui.js"></script>
     <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -35,7 +36,6 @@
             <div class="file_info_field" id="text_file_info_field" >
                 <h1 class="text_file_info" id="name"></h1>
                 <h1 class="text_file_info" id="size"></h1>
-            
                 <textarea id="note" placeholder="文件描述"></textarea>
             </div>
             <div class="file_upload_button">确认</div>
@@ -56,27 +56,16 @@
     </div>
 
     <div class="empty"></div>
-    <div class="file">
-        <div class="file_icon"></div>
-        <div class="file_name">BBB</div>
-        <div class="file_id">114514</div>
-        <div class="file_size">1919810MB</div>
-        <div class="file_time">2022-01-01</div>
-        <div class="file_uploader">SSB</div>
-        <div class="file_counts">0721</div>
-        <div class="file_download_button"></div>
-        <div class="file_label_button"></div>
-        <div class="file_delete_button"></div>
-    </div>
 
+    <div class="file_container"></div>
 
     <div class="pagination-container">
         <ul class="pagination" id="pagination"></ul>
         <div class="page_num">
-            当前页码: <span id="currentPage">114</span> /
-            <span id="totalPages">514</span>
-            跳转到: <input type="number" id="jumpPage" min="0721" max="514" value="114">
-            <button onclick="jumpPage()">跳转</button>
+            当前页码: <span id="currentPage"></span> /
+            <span id="totalPages"></span>
+            跳转到: <input type="number" id="jumpPage">
+            <button>跳转</button>
         </div>
     </div>
 

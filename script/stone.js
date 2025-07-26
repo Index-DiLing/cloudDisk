@@ -1,3 +1,16 @@
+
+$(document).ready(function(){
+    // $(选择器).行为
+    //添加监听器: $(选择器).on(监听器,回调函数)
+    $(".page_num button").on("click", function(){
+        const input = document.getElementById('jumpPage');
+        let page = parseInt(input.value);
+        if (isNaN(page) || page < 1) page = 1;
+        if (page > paginationConfig.totalPages) page = paginationConfig.totalPages;
+        paginationConfig.currentPage = page;
+        renderPagination();
+    })
+})
 // 分页器配置
 const paginationConfig = {
     totalPages: 20, // 后端放总页数
@@ -140,6 +153,7 @@ function createEllipsisItem() {
 }
 
 // 跳转到指定页面
+/*
 function jumpPage() {
     const input = document.getElementById('jumpPage');
     let page = parseInt(input.value);
@@ -150,6 +164,8 @@ function jumpPage() {
     paginationConfig.currentPage = page;
     renderPagination();
 }
+
+ */
 
 // 初始化分页器
 document.addEventListener('DOMContentLoaded', initPagination);
